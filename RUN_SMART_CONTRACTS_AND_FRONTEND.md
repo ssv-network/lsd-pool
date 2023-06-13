@@ -19,7 +19,7 @@ Prerequisites: [Node (v18 LTS)](https://nodejs.org/en/download/) plus [Yarn (v1.
 > 1️⃣ clone/fork awesome SSV Staking repo:
 
 ```bash
-git clone https://github.com/ssv-network/lsd-pool/
+git clone https://github.com/ssv-network/lsd-pool/ && cd lsd-pool
 ```
 
 > 2️⃣ make sure you have the right network set
