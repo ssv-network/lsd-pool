@@ -6,7 +6,7 @@
 
 # Live Deployment
 
-You can find our live demo deployment [Here](https://awesome-ssv-staking.surge.sh)
+You can find our live demo deployment [Here](https://awesome-ssv-frontend-3.surge.sh/). You can stake your Goerli here or launch your own pool! 
 
 # 🚀 Quick Start Frontend
 
@@ -154,15 +154,18 @@ yarn verify --network goerli <NEW_DEPLOYED_CONTRACT_ADDRESS>
 
 followed by
 
-`yarn surge` (can be problematic on windows, if running it, use WSL to run this command
+`yarn surge` (can be problematic on windows, if running it, use WSL to run this command)
 
-You will need to have a surge account and have the surge CLI installed. There is also the option to deploy to IPFS using `yarn ipfs` and `yarn s3` to deploy to an AWS bucket 🪣 There are scripts in the `packages/react-app/src/scripts` folder to help with this.`
+You will need to have a surge account and have the surge CLI installed. 
+There is also the option to deploy to IPFS using `yarn ipfs` and `yarn s3` to deploy to an AWS bucket 🪣 There are scripts in the `packages/react-app/src/scripts` folder to help with this.`
 
 ---
 
 # Backend
 
 Now it's time to activate some validators beacon chain and use ssv network to run it!
+
+### 🚀 [Click here, follow the readme and run Backend script](https://github.com/bloxapp/awesome-ssv/blob/main/RUN_BACKEND.md)
 
 All the backend functionality for this, namely
 
@@ -173,9 +176,6 @@ All the backend functionality for this, namely
 
 are done for you out of the box!!!
 
-### 🚀 Just follow the readme and run scripts 
-
-[Backend script](https://github.com/bloxapp/awesome-ssv/blob/main/RUN_BACKEND.md)
 
 💼 Add/Edit your deployment scripts in `packages/hardhat/scripts/deploy` for Goerli and in `packages/hardhat/deploy` for localhost (Goerli fork)
 
@@ -185,4 +185,4 @@ are done for you out of the box!!!
 
 ## Connect
 
-Best way is via discord channel [#devs-support](https://discord.com/channels/723834989506068561/766640777815523330), ask there, tag the team directly and also @MarkoInEther and @Matty. They will help you to get to the right person.
+Best way is via [ssv discord](https://discord.com/invite/ssvnetworkofficial) channel [#devs-support](https://discord.com/channels/723834989506068561/766640777815523330), ask there, tag the team directly and also @MarkoInEther and @Matty. They will help you to get to the right person.
