@@ -125,7 +125,7 @@ If you want to deploy on the live Goerli testnet, you'll only need :
 Then :
 
 ```bash
-yarn deploy
+yarn deploy --network goerli
 ```
 
 🎇 after this your new staking pool and ssvETH contracts should reflect on automatically in `packages/react-app/src/contracts/goerli/`
@@ -148,7 +148,15 @@ yarn verify --network goerli <NEW_DEPLOYED_CONTRACT_ADDRESS>
 
 # Show off to the world
 
-🚨📡 To deploy to a public domain, use `yarn surge`. You will need to have a surge account and have the surge CLI installed. There is also the option to deploy to IPFS using `yarn ipfs` and `yarn s3` to deploy to an AWS bucket 🪣 There are scripts in the `packages/react-app/src/scripts` folder to help with this.`
+🚨📡 To deploy to a public domain, use:
+
+`yarn build`
+
+followed by
+
+`yarn surge` (can be problematic on windows, if running it, use WSL to run this command
+
+You will need to have a surge account and have the surge CLI installed. There is also the option to deploy to IPFS using `yarn ipfs` and `yarn s3` to deploy to an AWS bucket 🪣 There are scripts in the `packages/react-app/src/scripts` folder to help with this.`
 
 ---
 
@@ -165,7 +173,9 @@ All the backend functionality for this, namely
 
 are done for you out of the box!!!
 
-🚀 Just follow the readme and run scripts [here](https://github.com/bloxapp/awesome-ssv/blob/main/RUN_BACKEND.md)
+### 🚀 Just follow the readme and run scripts 
+
+[Backend script](https://github.com/bloxapp/awesome-ssv/blob/main/RUN_BACKEND.md)
 
 💼 Add/Edit your deployment scripts in `packages/hardhat/scripts/deploy` for Goerli and in `packages/hardhat/deploy` for localhost (Goerli fork)
 
