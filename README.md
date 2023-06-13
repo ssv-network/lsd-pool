@@ -37,7 +37,7 @@ Huge thanks to
 
 - Staking has never been so easy, thanks to SSV, you can stake your ETH and earn ssvETH without running your own validator! 🤑
 
-![[Pasted image 20230613095052.png]]
+![image](https://github.com/ssv-network/lsd-pool/assets/37876756/c7840bd7-2f4c-478b-9c1c-0c4b29b157bf)
 
 ### User Actions
 
