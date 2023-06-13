@@ -62,7 +62,10 @@ If you want to deploy the contracts locally using the Goerli fork you can do so 
 
 You will need to setup your RPC endpoint.
 
-Update `frontend/packages/hardhat/package.json` file and edit this line `"fork": "hardhat node --network hardhat --fork https://goerli.infura.io/v3/<YOUR_KEY>"` and input `<YOUR_KEY>`
+Update:
+- `frontend/packages/hardhat/package.json` file and edit this line `"fork": "hardhat node --network hardhat --fork https://goerli.infura.io/v3/<YOUR_KEY>"` and input `<YOUR_KEY>`
+- create env file by copying the example `cp packages\hardhat\example.env packages\hardhat\.env` and editing it, you need to put in your **deployer private key** for Goerli make sure you have goerliETH on it.
+-   update fields  `GOERLI_INFURA_KEY=` and `GOERLI_DEPLOYER_PRIV_KEY=`
 
 You can obtain one from [infura here](https://app.infura.io/).
 
