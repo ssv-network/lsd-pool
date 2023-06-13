@@ -77,9 +77,9 @@ yarn fork
 
 After setting up your `defaultNetwork` to `"localhost"` in `hardhat-config.js` you can run
 
-🔏 Edit the smart contracts in `packages/hardhat/contracts`
+🔏 Edit the smart contracts
 
-grab `Account #0:` from the terminal:
+grab `Account #0:` from the terminal running hardhat:
 
 ```bash
 Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
@@ -94,8 +94,7 @@ Account #0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 (10000 ETH)
 Private Key: 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
 
 ```
-
-change these 2 constants to your deployer address:
+go to file `frontend\packages\hardhat\deploy\0_deploy_staking_pool.js` adn change these 2 constants to your deployer address:
 
 ```js
   const keyGenerator = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
