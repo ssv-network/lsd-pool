@@ -165,7 +165,7 @@ There is also the option to deploy to IPFS using `yarn ipfs` and `yarn s3` to de
 
 Now it's time to activate some validators beacon chain and use ssv network to run it!
 
-### 🚀 [Click here, follow the readme and run Backend script](https://github.com/bloxapp/awesome-ssv/blob/main/RUN_BACKEND.md)
+### 🚀 [Click here, follow the readme and run Backend script](https://github.com/ssv-network/lsd-pool/blob/main/RUN_BACKEND.md)
 
 All the backend functionality for this, namely
 
