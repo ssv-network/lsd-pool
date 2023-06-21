@@ -7,11 +7,11 @@
 ## Video walkthrough
 [![Video walkthrough & launchig 🌈LSD pool](http://img.youtube.com/vi/CK-4xPgiU-w/0.jpg)](http://www.youtube.com/watch?v=CK-4xPgiU-w "Repo walkthrough & launchig 🌈LSD pool")
 
-# Live Deployment
+## Live Deployment
 
 You can find our live demo deployment [Here](https://awesome-ssv-frontend-3.surge.sh/). You can stake your Goerli here or launch your own pool! 
 
-# 🚀 Deploy your own 🌈LSD experience
+## 🚀 Deploy your own 🌈LSD experience
 
 Prerequisites: [Node (v18 LTS)](https://nodejs.org/en/download/) plus [Yarn (v1.x)](https://classic.yarnpkg.com/en/docs/install/) and [Git](https://git-scm.com/downloads)
 
