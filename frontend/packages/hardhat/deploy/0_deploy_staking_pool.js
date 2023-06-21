@@ -27,6 +27,5 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   });
 
   console.log(`StakingPool deployed to ${stakingpool.address}`);
-  
 };
 module.exports.tags = ["StakingPool"];

@@ -3,6 +3,7 @@
     "hardhat": "^2.12.7"
   },
   "dependencies": {
-    "ethers": "^6.3.0"
+    "ethers": "^6.3.0",
+    "yarn": "^1.22.19"
   }
 }

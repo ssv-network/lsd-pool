@@ -56,7 +56,7 @@ brownie pm install OpenZeppelin/openzeppelin-contracts-upgradeable@4.8.0
 
 ### Contract Changes
 
-Now go to `demo-contract/scripts/deploy.py` and change the following:
+Now go to `contracts-only/scripts/deploy.py` and change the following:
 
 - `whitelist, withdrawal_creds` update these values using the deployer address that you will use to run the backend script
 
@@ -84,7 +84,7 @@ ENDPOINT = goerli endpoint from Alchemy or Infura
 
 - Now you can use this network to deploy your contracts and interact with SSV contracts
 
-- `cd demo-contract/`
+- `cd contracts-only/`
 
 - `brownie console`
 
@@ -109,7 +109,7 @@ This repo works well with Goerli network as the network contains both the Beacon
 
 ##### Start the network:
 
-- `cd demo-contract/`
+- `cd contracts-only/`
 
 - `brownie console --network goerli`
 

@@ -155,7 +155,12 @@ my-stake-config_copy.json
 # frontend deployment files
 /frontend/packages/hardhat/deployments/*
 /frontend/packages/react-app/src/contracts/*
+/frontend/packages/react-app/.eslintcache
 
 
 # backend local state
 /fallback.json
+
+# local testing files 
+yarn.lock
+my-stake-config_local.json

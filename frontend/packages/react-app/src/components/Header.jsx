@@ -18,7 +18,7 @@ export default function Header({ link, title, subTitle, ...props }) {
           {subTitle}
         </Text>
         <span>
-          You can spin up your own pool too ! for more info check our 
+          You can spin up your own pool too ! for more info check our
           <a href={link} target="_blank" rel="noopener noreferrer">
             📘 github
           </a>
@@ -30,7 +30,7 @@ export default function Header({ link, title, subTitle, ...props }) {
 }
 
 Header.defaultProps = {
-  link: "https://github.com/bloxapp/awesome-ssv/",
+  link: "https://github.com/ssv-network/lsd-pool/",
   title: "🥩 SSV Staking",
   subTitle: "SSV Staking Frontend Solution",
 };

@@ -123,7 +123,7 @@ function Home({ localProvider, readContracts, writeContracts, userSigner, gasPri
           also use in other DeFi protocols{" "}
         </h4>
         You can find more details{" "}
-        <a href="https://github.com/bloxapp/awesome-ssv/blob/main/README.md" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/ssv-network/lsd-pool/blob/main/README.md" target="_blank" rel="noopener noreferrer">
           📕 here
         </a>
         <Divider />
