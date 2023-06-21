@@ -53,6 +53,7 @@ class Credential:
         account = str(index)
         withdrawal_key_path = f'm/{purpose}/{coin_type}/{account}/0'
         self.signing_key_path = f'{withdrawal_key_path}/0'
+        print(withdrawal_key_path)
 
         self.withdrawal_sk = mnemonic_and_path_to_key(
             mnemonic=mnemonic, path=withdrawal_key_path, password=mnemonic_password)
@@ -181,6 +182,7 @@ class CredentialList:
                 f"The number of keys ({num_keys}) doesn't equal to the corresponding deposit amounts ({len(amounts)})."
             )
         key_indices = range(start_index, start_index + num_keys)
+        print(key_indices)
         return cls([Credential(mnemonic=mnemonic, mnemonic_password=mnemonic_password,
                                    index=index, amount=amounts[index - start_index], chain_setting=chain_setting,
                                    hex_eth1_withdrawal_address=hex_eth1_withdrawal_address)

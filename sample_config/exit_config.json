@@ -1,0 +1,7 @@
+{
+  "beacon_chain_url": "",
+  "submit_withdrawal_message": true,
+  "chain_id": 5,
+  "validators": [],
+  "keystore_passphrase": ""
+}

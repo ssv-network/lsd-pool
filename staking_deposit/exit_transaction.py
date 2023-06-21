@@ -28,7 +28,6 @@ def exit_transaction_generation(
         fork_version=chain_settings.CURRENT_FORK_VERSION,
         genesis_validators_root=chain_settings.GENESIS_VALIDATORS_ROOT
     )
-
     signing_root = compute_signing_root(message, domain)
     signature = bls.Sign(signing_key, signing_root)
 
@@ -71,6 +70,7 @@ def get_exit_file(chain: str, keystore: str, keystore_password: str, validator_i
     saved_keystore = Keystore.from_file(keystore)
     secret_bytes = saved_keystore.decrypt(keystore_password)
     signing_key = int.from_bytes(secret_bytes, 'big')
+    print(signing_key)
     chain_settings = get_chain_setting(chain)
     signed_exit = exit_transaction_generation(
         chain_settings=chain_settings,
@@ -82,4 +82,7 @@ def get_exit_file(chain: str, keystore: str, keystore_password: str, validator_i
     print(saved_folder)
     return saved_folder
 
-
+#
+# get_exit_file(GOERLI,
+#               "/home/rohit/Downloads/ssv/awesome-ssv/validator_keys/keystore-m_12381_3600_1_0_0-1686136974.json",
+#               "test", 0, 0, "")
