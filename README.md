@@ -18,7 +18,12 @@ It leverages ssv.network to **run validators in a distributed and decentralized 
 
 ## Video walkthrough
 
+### With Frontend 
+[![Video walkthrough & launchig 🌈LSD pool](http://img.youtube.com/vi/CK-4xPgiU-w/0.jpg)](http://www.youtube.com/watch?v=CK-4xPgiU-w "Repo walkthrough & launchig 🌈LSD pool")
+
+### Without Frontend 
 [![Video walkthrough & launchig 🌈LSD pool](http://img.youtube.com/vi/CiV76rOY4go/0.jpg)](http://www.youtube.com/watch?v=CiV76rOY4go "Repo walkthrough & launchig 🌈LSD pool")
+
 
 **NOTE:**
 
