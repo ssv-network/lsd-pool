@@ -4,11 +4,14 @@
 
 🙏 For aditional functionality and documentation check the amazing [scaffold-eth](https://github.com/scaffold-eth/scaffold-eth) repo this frontend is based on!
 
+## Video walkthrough
+[![Video walkthrough & launchig 🌈LSD pool](http://img.youtube.com/vi/CK-4xPgiU-w/0.jpg)](http://www.youtube.com/watch?v=CK-4xPgiU-w "Repo walkthrough & launchig 🌈LSD pool")
+
 # Live Deployment
 
 You can find our live demo deployment [Here](https://awesome-ssv-frontend-3.surge.sh/). You can stake your Goerli here or launch your own pool! 
 
-# 🚀 Quick Start Frontend
+# 🚀 Deploy your own 🌈LSD experience
 
 Prerequisites: [Node (v18 LTS)](https://nodejs.org/en/download/) plus [Yarn (v1.x)](https://classic.yarnpkg.com/en/docs/install/) and [Git](https://git-scm.com/downloads)
 
@@ -42,7 +45,7 @@ or
 
 2. `const initialNetwork = NETWORKS.localhost;` if running with `yarn fork`.
 
-# Frontend Editing
+## Frontend Editing
 
 📝 Edit your frontend `App.jsx` in `packages/react-app/src`
 
@@ -50,13 +53,13 @@ or
 
 ✏ Edit the home view and the manager view in `packages/react-app/src/views/Home.jsx` and `packages/react-app/src/views/Manager.jsx`respectively.
 
-# Contract Deployment
+## Contract Deployment
 
 🔏 Edit the smart contracts in `packages/hardhat/contracts`
 
 💼 Add/Edit your deployment scripts in `packages/hardhat/deploy`
 
-## 🚨 Local deployment (Goerli fork):
+### 🚨 Local deployment (Goerli fork):
 
 If you want to deploy the contracts locally using the Goerli fork you can do so with hardhat.
 
@@ -115,7 +118,7 @@ yarn fund-pool
 
 🎇 After this, your new staking pool and ssvETH contracts should reflect on automatically in `packages/react-app/src/contracts/localhost/`, `packages/react-app/src/contracts/external_contracts` and in `packages/react-app/src/contracts/hardhat_contracts`.
 
-## 🚨 Goerli live deployment:
+### 🚨 Goerli live deployment:
 
 If you want to deploy on the live Goerli testnet, you'll only need :
 
@@ -130,6 +133,7 @@ yarn deploy --network goerli
 
 🎇 after this your new staking pool and ssvETH contracts should reflect on automatically in `packages/react-app/src/contracts/goerli/`
 
+#### Verify contracts
 ✅ you can also verify your staking pool contract on Goerli by using this :
 
 ```bash
@@ -156,12 +160,12 @@ followed by
 
 `yarn surge` (can be problematic on windows, if running it, use WSL to run this command)
 
-You will need to have a surge account and have the surge CLI installed. 
+You will need to have a surge account(create for free) and have the surge CLI installed. 
 There is also the option to deploy to IPFS using `yarn ipfs` and `yarn s3` to deploy to an AWS bucket 🪣 There are scripts in the `packages/react-app/src/scripts` folder to help with this.`
 
 ---
 
-# Backend
+## Backend
 
 Now it's time to activate some validators beacon chain and use ssv network to run it!
 
@@ -179,10 +183,10 @@ are done for you out of the box!!!
 
 💼 Add/Edit your deployment scripts in `packages/hardhat/scripts/deploy` for Goerli and in `packages/hardhat/deploy` for localhost (Goerli fork)
 
-# Interested? Get involved
+## Interested? Get involved
 
 - build sth interesting on top, transferable NFT validators, Restaking app, or whatever else and **open PR**.
 
-## Connect
+### Connect
 
 Best way is via [ssv discord](https://discord.com/invite/ssvnetworkofficial) channel [#devs-support](https://discord.com/channels/723834989506068561/766640777815523330), ask there, tag the team directly and also @MarkoInEther and @Matty. They will help you to get to the right person.
