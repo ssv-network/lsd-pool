@@ -18,11 +18,11 @@ It leverages ssv.network to **run validators in a distributed and decentralized 
 
 ## Video walkthrough
 
-### With Frontend 
+### With Frontend [RUN_SMART_CONTRACTS_AND_FRONTEND.md](/RUN_SMART_CONTRACTS_AND_FRONTEND.md)
 
 [![Video walkthrough & launchig 🌈LSD pool](http://img.youtube.com/vi/CK-4xPgiU-w/0.jpg)](http://www.youtube.com/watch?v=CK-4xPgiU-w "Repo walkthrough & launchig 🌈LSD pool")
 
-### Without Frontend 
+### Without Frontend [RUN_SMART_CONTRACTS_ONLY.md](/RUN_SMART_CONTRACTS_ONLY.md)
 
 [![Video walkthrough & launchig 🌈LSD pool](http://img.youtube.com/vi/CiV76rOY4go/0.jpg)](http://www.youtube.com/watch?v=CiV76rOY4go "Repo walkthrough & launchig 🌈LSD pool")
 
