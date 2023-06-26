@@ -11,7 +11,7 @@ def main():
     deployer = get_deployer()
 
     # TODO OPTIONAL update these values
-    whitelist = "0x49c5e038dc918F841589cE517fF975A4429eEb5c"
+    whitelist = "0x74f02Bd9CdaBc08010214E14928535ecf590FfAb"
     withdrawal_creds = "0x44449d7cA8e3724cb9c9E30Ce49B286e275D79bf"
     operator_ids = [4, 9, 17, 76]
 

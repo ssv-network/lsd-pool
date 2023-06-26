@@ -42,19 +42,30 @@ class SSVNetwork:
         raise ValueError("Operator id doesn't exist")
 
     def get_latest_cluster(self, owner_address, operator_ids):
-        step = 50000
+        step = 30000
         from_block = self.web3.eth.get_block_number() - step
         to_block = self.web3.eth.get_block_number()
         while to_block > 8661727:
-            filter = self.contract.events.ValidatorAdded.build_filter()
-            filter.fromBlock = from_block
-            filter.toBlock = to_block
-            filter.args.owner.match_single(owner_address)
-            filter.args.operatorIds.match_single(operator_ids)
-            filter_deploy = filter.deploy(self.web3)
-            result = filter_deploy.get_all_entries()
-            if len(result) > 0:
-                return result[len(result) - 1].args.cluster
+            filters = [self.contract.events.ValidatorAdded.build_filter(),
+                       self.contract.events.ValidatorRemoved.build_filter(),
+                       self.contract.events.ClusterLiquidated.build_filter(),
+                       self.contract.events.ClusterReactivated.build_filter(),
+                       self.contract.events.ClusterWithdrawn.build_filter(),
+                       self.contract.events.ClusterDeposited.build_filter()]
+            results = {}
+            for filter_result in filters:
+                filter_result.fromBlock = from_block
+                filter_result.toBlock = to_block
+                filter_result.args.owner.match_single(owner_address)
+                filter_deploy = filter_result.deploy(self.web3)
+                result = filter_deploy.get_all_entries()
+                if len(result) > 0:
+                    for data in result:
+                        if sorted(result[0].args.operatorIds) == sorted(operator_ids):
+                            results[data.blockNumber] = data.args.cluster
+            print(results)
+            if len(results) > 0:
+                return results[max(results)]
             to_block = from_block
             from_block -= step
         return [0, 0, 0, 0, True]
