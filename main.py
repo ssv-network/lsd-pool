@@ -153,14 +153,18 @@ def exit_vaidators(config_file):
     consensus_node = ConsensusNode(config.beacon_chain_url)
     if config.chain_id == 5:
         chain = GOERLI
-    exit_epoch = consensus_node.get_latest_epoch() + 2
+    exit_epoch = consensus_node.get_latest_epoch()
+    print(exit_epoch)
     for exit_validator in config.validators:
         pubkey = "0x" + read_file(exit_validator).pubkey
+        print(pubkey)
         index = consensus_node.get_validator_index(pubkey)
+        print(index)
         file = get_exit_file(chain, exit_validator, config.keystore_passphrase, int(index), exit_epoch, "")
-        print("exit file generated for keystore: {} .\n exit file: {}".format(validator, file))
+        print("exit file generated for keystore: {} .\n exit file: {}".format(exit_validator, file))
         if config.submit_withdrawal_message:
             exit_message = read_file(file, True)
+            print(exit_message)
             consensus_node.submit_voluntary_exit(exit_message)
             print("voluntary exit message submitted")
 

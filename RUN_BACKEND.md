@@ -158,6 +158,12 @@ python3 main.py deposit-validators -c sample_config/deposit-validator.json
 python3 main.py deposit-keyshares -c <CONFIG_FILE>
 
 ```
+- *exit* : This option can be used to exit the validator keys on testnet with keystore file and password
+  - Example config file: sample_config/exit_config.json
+  - Fill in the params in the config and pass it as an argument
+```
+python main.py exit -c <CONFIG_FILE>
+```
 
 ### LICENSE
 

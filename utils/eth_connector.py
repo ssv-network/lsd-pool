@@ -71,7 +71,7 @@ class ConsensusNode:
         else:
             response.raise_for_status()
 
-    def get_validator_index(self,pubkey):
+    def get_validator_index(self, pubkey):
         response = requests.get(self.api_url + self.VALIDATOR_STATE.format(pubkey))
 
         if response.status_code < 300:
@@ -86,6 +86,14 @@ class ConsensusNode:
         response = requests.get(self.api_url + self.HEADERS)
         if response.status_code < 300:
             print("latest epoch ")
-            return int(int(response.json()["data"][0]["header"]["message"]["slot"])/32)
+            return int(int(response.json()["data"][0]["header"]["message"]["slot"]) / 32)
         else:
             response.raise_for_status()
+
+
+if __name__ == '__main__':
+    cc = ConsensusNode("http://127.0.0.1:5200")
+    message = {'message': {'epoch': '186076', 'validator_index': '502281'},
+               'signature': '0x90f6c579210ff96d83cc125862e82add3b64ee8dacb6ba708c0b26c5768ed5da6bf3ef33102d377f18b1be61c82b55fa0ccf433c021c2a2bb936f7ca827832f0056b105cf68b79a600e2a25d03422888f90df1ece9dba91aed7ce787974f0519'}
+
+    cc.submit_voluntary_exit(message)
