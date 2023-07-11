@@ -155,7 +155,7 @@ contract StakingPool is Ownable, ReentrancyGuard {
      */
     function unStake(uint256 _amount) public {
         ssvETH.transferFrom(msg.sender, address(this), _amount);
-        uint256 _amount_to_transfer = (_amount* 1e18) / ssvETH.sharePrice() ;
+        uint256 _amount_to_transfer = (_amount* 1e18) / ssvETH.sharePrice();
         payable(msg.sender).transfer(_amount_to_transfer);
         userStake[msg.sender] -= _amount;
     }
