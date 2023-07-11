@@ -138,7 +138,7 @@ contract StakingPool is Ownable, ReentrancyGuard {
      */
 
     function stake() public payable {
-        /** Ensuring that the caller has passed atleast some value to the function/contract. 
+        /** Ensuring that the caller has passed atleast some value to the function/contract.
         This contract utilizes custom errors to optimize gas usage, instead of normal `require` conditionals */
         if (msg.value <= 0) {
             revert StakingPool__CantStakeZeroAmount(msg.value);
@@ -155,7 +155,7 @@ contract StakingPool is Ownable, ReentrancyGuard {
      */
     function unStake(uint256 _amount) public {
         ssvETH.transferFrom(msg.sender, address(this), _amount);
-        uint256 _amount_to_transfer = (_amount / ssvETH.sharePrice()) * 1e18;
+        uint256 _amount_to_transfer = (_amount* 1e18) / ssvETH.sharePrice();
         payable(msg.sender).transfer(_amount_to_transfer);
         userStake[msg.sender] -= _amount;
     }
