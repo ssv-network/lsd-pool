@@ -118,7 +118,7 @@ ENV/
 env.bak/
 venv.bak/
 
-# contracts 
+# contracts
 
 
 # contract config
@@ -148,7 +148,7 @@ keyshares
 **/.idea
 **/cache
 
-# my config 
+# my config
 my-stake-config.json
 my-stake-config_copy.json
 
@@ -159,8 +159,8 @@ my-stake-config_copy.json
 
 
 # backend local state
-/fallback.json
+/backend/fallback.json
 
-# local testing files 
+# local testing files
 yarn.lock
 my-stake-config_local.json
