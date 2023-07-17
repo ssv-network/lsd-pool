@@ -68,7 +68,7 @@ class SSVNetwork:
                 return results[max(results)]
             to_block = from_block
             from_block -= step
-        return [0, 0, 0, 0, True]
+        return [0, 0, 0, True, 0]
 
     def get_latest_nonce(self, owner_address):
         step = 30000
