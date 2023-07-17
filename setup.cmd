@@ -13,8 +13,7 @@ if exist "ssv-keys" (
     git clone https://github.com/bloxapp/ssv-keys.git
     cd ssv-keys
     git fetch -a
-    git checkout main
-    cd ..
+    git checkout v3
     del ssv-keys\package.json
     copy ssv\package.json ssv-keys\package.json
     yarn --cwd ssv-keys install 
