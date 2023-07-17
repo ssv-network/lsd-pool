@@ -65,7 +65,7 @@ class SSV:
         self.keystore_file = keystore_file
         self.keystore_pass = keystore_password
 
-    def generate_shares(self, operator_data: List[Operator]):
+    def generate_shares(self, operator_data: List[Operator], owner_address, nonce):
         """
 
         :return:
@@ -75,10 +75,9 @@ class SSV:
         operator_pubkeys = [operator.pubkey for operator in operator_data]
         output_folder = os.getcwd() + "/keyshares"
         cli_path = self.CLI_PATH_LINUX_MAC if 'Linux' in platform.system() or 'Darwin' in platform.system() else self.CLI_PATH_WIN
-        print(self.keystore_pass)
         output = check_output([cli_path, "shares", "-ks", self.keystore_file, "-ps", self.keystore_pass,
                                "-oids", ",".join(operator_ids), "-oks", ",".join(operator_pubkeys),
-                               "-of", output_folder])
+                               "-of", output_folder, "-oa", owner_address, "-on", str(nonce)])
         if "UnhandledPromiseRejectionWarning" in output.decode("utf-8"):
             raise Exception("ssv-cli failed to generate keyshares")
         elif "Error" in output.decode("utf-8"):
@@ -98,12 +97,3 @@ class SSV:
         file_path.close()
         return shares["payload"]
 
-
-if __name__ == '__main__':
-    ssv = SSV(
-        "/home/rohit/Documents/hackathon-bogota/ssv-service/validator_keys/keystore-m_12381_3600_1_0_0-1665252210.json",
-        "test")
-    op = OperatorData("https://api.ssv.network")
-    operators = op.get_operator_data([1, 2, 192, 42])
-    share_file = str(ssv.generate_shares(operators, 1200084048))
-    ssv.get_keyshare(share_file)

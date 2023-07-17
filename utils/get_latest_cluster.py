@@ -106,6 +106,29 @@ class SSVNetwork:
             from_block -= step
         return [0, 0, 0, 0, True]
 
+    def get_latest_nonce(self, owner_address):
+        step = 30000
+        from_block = self.web3.eth.get_block_number() - step
+        to_block = self.web3.eth.get_block_number()
+        nonce = 0
+        while to_block > 8661727:
+            filter = self.contract.events.ValidatorAdded.build_filter()
+            results = {}
+            filter.fromBlock = from_block
+            filter.toBlock = to_block
+            filter.args.owner.match_single(owner_address)
+            filter_deploy = filter.deploy(self.web3)
+            result = filter_deploy.get_all_entries()
+            if len(result) > 0:
+                for data in result:
+                    nonce += 1
+            print(results)
+            if len(results) > 0:
+                return results[max(results)]
+            to_block = from_block
+            from_block -= step
+        return nonce
+
 
 if __name__ == '__main__':
     web3 = Web3(Web3.HTTPProvider(sys.argv[1]))
@@ -114,6 +137,6 @@ if __name__ == '__main__':
     print(operator_id)
     print(owner_address)
     ssv = SSVNetwork(sys.argv[4], web3)
-    print(ssv.get_latest_cluster(owner_address,operator_id))
+    print(ssv.get_latest_cluster(owner_address, operator_id))
 
     # TO run: python get_latest_cluster.py <eth_rpc> <operator_ids_comma_separated> <owner_address> <ssv_address>
