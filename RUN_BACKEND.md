@@ -53,11 +53,13 @@ chmod +x setup.sh
 
 ## Run Backend Manager
 
-**NOTE:**
+**IMPORTANT:**
 
-- Make sure that for the backend script, you are using a private key corresponding to your `whitelist` address from your `deploy` script.
+- **Backend Manager is whitelisted**
+  - Make sure that for the backend script, you are using a private key corresponding to your `whitelist` address from your `deploy` script.
 
-- Your staking pool needs to be funded with some SSV to pay for running your validator. Keep at least 50 SSV at your deployer address. It will be used to pay operators for running your distributed validator. You can get some Goerli SSV from [SSV faucet here](https://faucet.ssv.network/). If you are using a local goerli-fork, use the faucet on Goerli, send the SSV to your deployer address and launch your goerli-fork again.
+- **Backend Manager has SSV balance**
+  - Your staking pool needs to be funded with some SSV to pay for running your validator. Keep at least 50 SSV at your deployer address. It will be used to pay operators for running your distributed validator. You can get some Goerli SSV from [SSV faucet here](https://faucet.ssv.network/). If you are using a local goerli-fork, use the faucet on Goerli, send the SSV to your deployer address and launch your goerli-fork again.
 
 ### Outputs
 
