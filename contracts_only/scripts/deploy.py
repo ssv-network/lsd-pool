@@ -13,10 +13,10 @@ def main():
     # TODO OPTIONAL update these values
     whitelist = "0x74f02Bd9CdaBc08010214E14928535ecf590FfAb"
     withdrawal_creds = "0x44449d7cA8e3724cb9c9E30Ce49B286e275D79bf"
-    operator_ids = [4, 9, 17, 76]
+    operator_ids = [1, 2, 3, 4]
 
     deposit_contract = "0xff50ed3d0ec03ac01d4c79aad74928bff48a7b2b"
-    ssv_network_contract = "0xAfdb141Dd99b5a101065f40e3D7636262dce65b3"
+    ssv_network_contract = "0xC3CD9A0aE89Fff83b71b58b6512D43F8a41f363D"
     ssv_token_address = "0x3a9f01091C446bdE031E39ea8354647AFef091E7"
 
     # ssvETH = "0xfcE8F661AbBf1417E6f73593B9cf779aF83501a9"

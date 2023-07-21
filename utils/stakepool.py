@@ -1,6 +1,8 @@
 import json
-
+from eth_abi import encode_abi
+from typing import List
 from web3 import Web3
+from ssz import uint64
 
 
 class StakingPool:
@@ -46,6 +48,5 @@ class StakingPool:
 
         :return:
         """
-        return self.contract.functions.depositShares(pubkey, operator_ids, shares,
-                                                     amount, cluster).buildTransaction(
-            {"from": account_address, 'gas':1500000})
+        return self.contract.functions.depositShares(pubkey, operator_ids, shares, amount, cluster).buildTransaction(
+            {"from": account_address, 'gas': 1500000})

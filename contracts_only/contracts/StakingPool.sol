@@ -198,7 +198,7 @@ contract StakingPool is Ownable, ReentrancyGuard {
         uint64[] calldata _operatorIds,
         bytes calldata _shares,
         uint256 _amount,
-        ISSVNetworkCore.Cluster memory _cluster
+        ISSVNetwork.Cluster memory _cluster
     ) external {
         /* Check if the message sender is the whitelisted address
          * This contract utilizes custom errors to optimize gas usage, instead of normal `require` conditionals */
