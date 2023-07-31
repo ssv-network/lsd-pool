@@ -20,7 +20,7 @@ class SSVNetwork:
 
     def _import_abi(self, filepath):
         if filepath is None:
-            with open("utils/SSVNetwork.json", "r") as file:
+            with open("utils/ISSVNetwork.json", "r") as file:
                 self.abi = json.load(file)["abi"]
             file.close()
         else:
@@ -172,9 +172,5 @@ class SSVToken:
             {"from": account_address})
 
 
-if __name__ == '__main__':
-    web3 = EthNode("https://eth-goerli.g.alchemy.com/v2/9y1ltLyP99wkj4RY0Nsp67Eat3WAlDoz",
-                   "0d19dfbb7dd09b8f19d76d9e57036cd109b55cf12c97080918c533b7bb6b12a7")
-    ssv = SSVNetwork("0xAfdb141Dd99b5a101065f40e3D7636262dce65b3", web3.eth_node, web3.eth_node)
-    print(ssv.get_operator_pubkey(1))
+
 

@@ -211,7 +211,6 @@ def start_staking(config_file):
                 print("keys created are:\n")
                 print(keystores)
                 for index, cred in enumerate(validators.get_deposit_data(deposit_file)):
-                    print(cred)
                     tx = stake_pool.deposit_validator("0x" + cred.pubkey,
                                                       "0x" + cred.withdrawal_credentials,
                                                       "0x" + cred.signature,
