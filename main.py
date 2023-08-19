@@ -145,7 +145,7 @@ def deposit_validator(config_file):
             print("key deposit failed for validator: {}".format(deposit.pubkey))
 
 
-def exit_vaidators(config_file):
+def exit_validators(config_file):
     """"
     """
     config = read_file(config_file)
@@ -210,9 +210,7 @@ def start_staking(config_file):
                                                                        HexStr(stake_pool.get_withdrawal_address())))
                 print("keys created are:\n")
                 print(keystores)
-                print("submitting validators")
                 for index, cred in enumerate(validators.get_deposit_data(deposit_file)):
-                    print(cred)
                     tx = stake_pool.deposit_validator("0x" + cred.pubkey,
                                                       "0x" + cred.withdrawal_credentials,
                                                       "0x" + cred.signature,
@@ -222,7 +220,7 @@ def start_staking(config_file):
                     fallback[cred.pubkey] = {
                         "keystore": keystores[index], "ssv_share": ""}
                     print("deposit the key" + str(cred.pubkey))
-                print("submitted validators\n")
+                print("submitted validators to deposit contract\n")
                 # generates keyshares from validator keystore file for ssv network contract and register them with ssv network
                 operator_id = stake_pool.get_operator_ids()
                 print("operator ids are:\n")
@@ -250,7 +248,9 @@ def start_staking(config_file):
                     if fallback[pubkey]["ssv_share"] == "":
                         # op = OperatorData("https://api.ssv.network") # todo: depreciated
                         # generate ssv keyshares based on operator public keys
-                        file = ssv.generate_shares(op)
+                        nonce = ssv_contract.get_latest_nonce(config.contract_address.stakepool)
+                        print(nonce)
+                        file = ssv.generate_shares(op,config.contract_address.stakepool,nonce)
                         fallback[pubkey]["ssv_share"] = file
                         shares = ssv.get_keyshare(file)
                     else:
@@ -285,8 +285,9 @@ def start_staking(config_file):
                                 "ERROR!!!! keys shares not added as your account doesn't have enough SSV tokens")
                     cluster = ssv_contract.get_latest_cluster(
                         config.contract_address.stakepool, operator_id)
+                    print(cluster)
                     tx = stake_pool.send_key_shares(shares["publicKey"], operator_id,
-                                                    shares["shares"], fees, cluster,
+                                                    shares["sharesData"], fees, cluster,
                                                     web3_eth.account.address)
                     web3_eth.make_tx(tx)
                     print("ssv shares submitted to the contract")
@@ -372,4 +373,4 @@ if __name__ == '__main__':
     elif args.which == "validator":
         deposit_validator(args.config)
     elif args.which == "exits":
-        exit_vaidators(args.config)
+        exit_validators(args.config)

@@ -11,15 +11,16 @@ class SSVNetwork:
     web3: Web3 = None
     goerli: Web3 = None
 
-    def __init__(self, ssv_address, _web3: Web3, _goerli:Web3, abi_path=None):
+    def __init__(self, ssv_address, _web3: Web3, _goerli: Web3, abi_path=None):
         self._import_abi(filepath=abi_path)
         self.web3 = _web3
         self.goerli = _goerli
         self.contract = self.web3.eth.contract(abi=self.abi, address=ssv_address)
+        self.contract_goerli = self.goerli.eth.contract(abi=self.abi, address=ssv_address)
 
     def _import_abi(self, filepath):
         if filepath is None:
-            with open("utils/SSVNetwork.json", "r") as file:
+            with open("utils/ISSVNetwork.json", "r") as file:
                 self.abi = json.load(file)["abi"]
             file.close()
         else:
@@ -32,8 +33,8 @@ class SSVNetwork:
         from_block = self.goerli.eth.get_block_number() - step
         to_block = self.goerli.eth.get_block_number()
         while to_block > 8661727:
-            filter = self.contract.events.OperatorAdded.createFilter(fromBlock=from_block, toBlock=to_block,
-                                                                      argument_filters={'operatorId': id})
+            filter = self.contract_goerli.events.OperatorAdded.createFilter(fromBlock=from_block, toBlock=to_block,
+                                                                            argument_filters={'operatorId': id})
             result = filter.get_all_entries()
             if len(result) > 0:
                 return str(result[0].args.publicKey).split("x02d")[1].split("\\x00\\x00")[0]
@@ -63,12 +64,30 @@ class SSVNetwork:
                     for data in result:
                         if sorted(result[0].args.operatorIds) == sorted(operator_ids):
                             results[data.blockNumber] = data.args.cluster
-            print(results)
             if len(results) > 0:
                 return results[max(results)]
             to_block = from_block
             from_block -= step
-        return [0, 0, 0, 0, True]
+        return [0, 0, 0, True, 0]
+
+    def get_latest_nonce(self, owner_address):
+        step = 30000
+        from_block = self.web3.eth.get_block_number() - step
+        to_block = self.web3.eth.get_block_number()
+        nonce = 0
+        while to_block > 8661727:
+            filter = self.contract.events.ValidatorAdded.build_filter()
+            results = {}
+            filter.fromBlock = from_block
+            filter.toBlock = to_block
+            filter.args.owner.match_single(owner_address)
+            filter_deploy = filter.deploy(self.web3)
+            result = filter_deploy.get_all_entries()
+            if len(result) > 0:
+                nonce += len(result)
+            to_block = from_block
+            from_block -= step
+        return nonce
 
 
 class SSVNetworkview:
@@ -153,8 +172,5 @@ class SSVToken:
             {"from": account_address})
 
 
-if __name__ == '__main__':
-    web3 = EthNode("https://eth-goerli.g.alchemy.com/v2/9y1ltLyP99wkj4RY0Nsp67Eat3WAlDoz",
-                   "0d19dfbb7dd09b8f19d76d9e57036cd109b55cf12c97080918c533b7bb6b12a7")
-    ssv = SSVNetwork("0xb9e155e65B5c4D66df28Da8E9a0957f06F11Bc04", web3.eth_node)
-    print(ssv.get_operator(1))
+
+

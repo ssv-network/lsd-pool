@@ -27,7 +27,6 @@ class ValidatorKey:
         chain_setting = get_chain_setting(chain)
         if not os.path.exists(folder):
             os.mkdir(folder)
-        print(validator_start_index)
         credentials = CredentialList.from_mnemonic(
             mnemonic=mnemonic,
             mnemonic_password=mnemonic_password,
